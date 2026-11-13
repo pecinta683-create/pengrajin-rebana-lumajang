@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grosir & Pengrajin Rebana Lumajang | Pusat Alat Hadrah Berkualitas</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d',
+                        },
+                        gold: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 border border-slate-700">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
+        <span id="toast-message" class="text-sm font-medium">Pesan terkirim!</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-11 h-11 bg-gradient-to-tr from-brand-700 to-brand-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-drum text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 block leading-none">PENGRAJIN REBANA</span>
+                        <span class="text-xs font-semibold text-brand-600 tracking-wider uppercase">Lumajang</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
+                    <a href="#beranda" class="hover:text-brand-600 transition">Beranda</a>
+                    <a href="#tentang" class="hover:text-brand-600 transition">Tentang Kami</a>
+                    <a href="#katalog" class="hover:text-brand-600 transition">Katalog Produk</a>
+                    <a href="#keunggulan" class="hover:text-brand-600 transition">Keunggulan</a>
+                    <a href="#testimoni" class="hover:text-brand-600 transition">Testimoni</a>
+                    <a href="#kontak" class="hover:text-brand-600 transition">Lokasi & Kontak</a>
+                </nav>
+
+                <!-- CTA Button Desktop -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="https://wa.me/6285122362418?text=Halo%20Admin%20Pengrajin%20Rebana%20Lumajang,%20saya%20tertarik%20dengan%20produk%20rebana%20Anda." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-600/20 transition flex items-center space-x-2 text-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Chat WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-slate-700 hover:text-brand-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Beranda</a>
+            <a href="#tentang" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Tentang Kami</a>
+            <a href="#katalog" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Katalog Produk</a>
+            <a href="#keunggulan" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Keunggulan</a>
+            <a href="#testimoni" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Testimoni</a>
+            <a href="#kontak" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Lokasi & Kontak</a>
+            <div class="pt-2">
+                <a href="https://wa.me/6285122362418?text=Halo%20Admin%20Pengrajin%20Rebana%20Lumajang" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-4 py-3 rounded-xl shadow-md text-center block flex items-center justify-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Chat WhatsApp Sekarang</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ef4444_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brand-500/20 border border-brand-500/30 px-3.5 py-1.5 rounded-full text-brand-400 text-xs font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-award"></i>
+                        <span>Pusat Pengrajin & Grosir Alat Rebana Berkualitas Lumajang</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Pengrajin Rebana Kaisar Sholawat, Perlengkapan Hadroh Berkualitas Terbaik di <span class="text-brand-500">Lumajang</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Kami menyediakan berbagai macam alat musik rebana tradisional dan modern (Fullset Hadrah, Habsyi, Darbuka, Bass, Keprak) langsung dari pengrajin berpengalaman di Lumajang. Finishing halus & suara menggelegar!
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4 pt-4">
+                        <a href="#katalog" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 py-4 rounded-xl shadow-xl shadow-brand-600/30 transition text-center flex items-center justify-center space-x-2">
+                            <span>Lihat Katalog Produk</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="https://wa.me/6285122362418?text=Halo,%20saya%20ingin%20konsultasi%20pemesanan%20rebana%20di%20Lumajang" target="_blank" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-semibold px-8 py-4 rounded-xl transition text-center flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
+                            <span>Tanya Harga / Custom</span>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800 text-center lg:text-left">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-bold text-white">10+</p>
+                            <p class="text-xs sm:text-sm text-slate-400">Tahun Pengalaman</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-bold text-white">500+</p>
+                            <p class="text-xs sm:text-sm text-slate-400">Majelis Terlayani</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-bold text-emerald-400">100%</p>
+                            <p class="text-xs sm:text-sm text-slate-400">Kayu & Kulit Pilihan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-600 to-gold-500 rounded-3xl blur-lg opacity-30 animate-pulse"></div>
+                        <div class="relative bg-slate-800 border border-slate-700 p-4 rounded-2xl shadow-2xl">
+                            <img src="https://placehold.co/600x500/1e293b/f8fafc?text=Alat+Hadrah+Fullset+Lumajang" alt="Alat Rebana Lumajang" class="rounded-xl w-full h-80 object-cover shadow-inner">
+                            <div class="mt-4 p-4 bg-slate-900/80 rounded-xl border border-slate-700/50 flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-bold text-white text-sm">Paket Habsyi Standar VIP</h4>
+                                    <p class="text-xs text-brand-400">Ready Stock di Workshop Lumajang</p>
+                                </div>
+                                <span class="bg-emerald-500/20 text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-500/30">Terlaris</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img src="https://placehold.co/400x500/f1f5f9/475569?text=Pembuatan+Rebana" alt="Pembuatan Rebana" class="rounded-2xl shadow-md w-full h-64 object-cover">
+                        <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100">
+                            <i class="fa-solid fa-hammer text-brand-600 text-3xl mb-2"></i>
+                            <h4 class="font-bold text-slate-900 text-lg">Buatan Pengrajin Asli</h4>
+                            <p class="text-xs text-slate-600 mt-1">Dibuat teliti oleh tangan ahli pembuat alat rebana turun temurun.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-xl">
+                            <i class="fa-solid fa-music text-gold-500 text-3xl mb-2"></i>
+                            <h4 class="font-bold text-white text-lg">Suara Khas & Nyaring</h4>
+                            <p class="text-xs text-slate-300 mt-1">Setiap alat ditala (tuning) dengan presisi agar menghasilkan suara hadrah terbaik.</p>
+                        </div>
+                        <img src="https://placehold.co/400x500/f1f5f9/475569?text=Kayu+Mahoni+Pilihan" alt="Kayu Pilihan" class="rounded-2xl shadow-md w-full h-64 object-cover">
+                    </div>
+                </div>
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-brand-50 px-3 py-1 rounded-lg text-brand-600 text-xs font-semibold uppercase tracking-wider">
+                        <span>Tentang Kami</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Sentra Penjualan & Pembuatan Rebana Terpercaya di Lumajang
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        <strong>Pengrajin Rebana Lumajang</strong> hadir di Kabupaten Lumajang untuk memenuhi kebutuhan majelis taklim, grup sholawat, sekolah (SD/SMP/SMA/Pesantren), dan pecinta seni Islam di seluruh wilayah Lumajang dan sekitarnya. 
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        Kami menggunakan bahan baku kayu berkualitas tinggi seperti kayu mahoni dan kayu nangka pilihan, dipadu dengan kulit kambing betina bagian punggung berkualitas tinggi atau mika import (Powerbeat/Rolling) untuk ketahanan dan suara maksimal.
+                    </p>
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-slate-700 font-medium text-sm">Bisa custom warna cat, ukiran nama majelis, dan tas/kover</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-slate-700 font-medium text-sm">Garansi stem & kualitas suara terjamin</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-slate-700 font-medium text-sm">Melayani pengiriman kilat khusus area Lumajang & luar kota</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Katalog Produk -->
+    <section id="katalog" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Katalog Produk</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Pilihan Alat Musik Rebana Berkualitas</h2>
+                <p class="text-slate-600">Pilih paket lengkap atau satuan sesuai kebutuhan majelis sholawat Anda.</p>
+                
+                <!-- Filter Kategori -->
+                <div class="flex flex-wrap justify-center gap-2 pt-4">
+                    <button onclick="filterProduct('all')" class="filter-btn px-5 py-2 rounded-xl text-sm font-semibold bg-brand-600 text-white shadow-md transition">Semua Produk</button>
+                    <button onclick="filterProduct('fullset')" class="filter-btn px-5 py-2 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition">Full Set Hadrah</button>
+                    <button onclick="filterProduct('satuan')" class="filter-btn px-5 py-2 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition">Rebana Satuan</button>
+                    <button onclick="filterProduct('pendukung')" class="filter-btn px-5 py-2 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition">Bass & Darbuka</button>
+                </div>
+            </div>
+
+            <!-- Grid Produk -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Produk 1 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition flex flex-col" data-category="fullset">
+                    <div class="relative overflow-hidden group">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Fullset+Habsyi+Gold" alt="Fullset Habsyi" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow">Full Set</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-slate-900 text-lg">Paket Fullset Habsyi VIP</h3>
+                                <span class="text-brand-600 font-extrabold text-lg">Rp 2.850.000</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-3">Isi: 4 Rebana Habsyi, 1 Bass, 1 Darbuka, 2 Keprak, Lengkap Tas & Kover.</p>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Kayu Mahoni</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Kulit Asli</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Free Tas</span>
+                            </div>
+                        </div>
+                        <button onclick="orderProduct('Paket Fullset Habsyi VIP', 'Rp 2.850.000')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-semibold text-sm transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan via WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 2 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition flex flex-col" data-category="fullset">
+                    <div class="relative overflow-hidden group">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Fullset+Al-Banjari" alt="Fullset Al-Banjari" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow">Full Set</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-slate-900 text-lg">Paket Fullset Al-Banjari Ukir</h3>
+                                <span class="text-brand-600 font-extrabold text-lg">Rp 3.300.000</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-3">Isi: 4 Rebana Ukir Jepara, 1 Bass, 1 Darbuka, 2 Keprak, Finishing Mewah Duco.</p>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Kayu Nangka</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Ukir Jepara</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Free Nama</span>
+                            </div>
+                        </div>
+                        <button onclick="orderProduct('Paket Fullset Al-Banjari Ukir', 'Rp 3.300.000')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-semibold text-sm transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan via WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 3 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition flex flex-col" data-category="satuan">
+                    <div class="relative overflow-hidden group">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Rebana+Habsyi+Satuan" alt="Rebana Habsyi Satuan" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-slate-700 text-white text-xs font-bold px-3 py-1 rounded-lg shadow">Satuan</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-slate-900 text-lg">Rebana Habsyi Polos 30cm</h3>
+                                <span class="text-brand-600 font-extrabold text-lg">Rp 250.000</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-3">Diameter 30cm, kayu mahoni pilihan, kencer kuningan tebal, suara renyah.</p>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Diameter 30cm</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Kuningan Asli</span>
+                            </div>
+                        </div>
+                        <button onclick="orderProduct('Rebana Habsyi Polos 30cm', 'Rp 250.000')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-semibold text-sm transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan via WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 4 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition flex flex-col" data-category="pendukung">
+                    <div class="relative overflow-hidden group">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Bass+Hadrah+Stand" alt="Bass Hadrah" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow">Pendukung</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-slate-900 text-lg">Bass Hadrah / Ketipung 16 Inch</h3>
+                                <span class="text-brand-600 font-extrabold text-lg">Rp 850.000</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-3">Dilengkapi kaki/stand, mika powerbeat berkualitas, bass mantap menggelegar.</p>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Ukuran 16"</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Termasuk Stand</span>
+                            </div>
+                        </div>
+                        <button onclick="orderProduct('Bass Hadrah 16 Inch', 'Rp 850.000')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-semibold text-sm transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan via WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 5 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition flex flex-col" data-category="pendukung">
+                    <div class="relative overflow-hidden group">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Darbuka+Alumunium" alt="Darbuka" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-lg shadow">Pendukung</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-slate-900 text-lg">Darbuka Cor Alumunium 8.75 Inch</h3>
+                                <span class="text-brand-600 font-extrabold text-lg">Rp 650.000</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-3">Bahan cor alumunium berat berkualitas, baut 6, suara tak & dou nyaring.</p>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Cor Alumunium</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Mika Import</span>
+                            </div>
+                        </div>
+                        <button onclick="orderProduct('Darbuka Cor Alumunium 8.75 Inch', 'Rp 650.000')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-semibold text-sm transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan via WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 6 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition flex flex-col" data-category="satuan">
+                    <div class="relative overflow-hidden group">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Keprak+Timtung" alt="Keprak" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-slate-700 text-white text-xs font-bold px-3 py-1 rounded-lg shadow">Satuan</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-slate-900 text-lg">Keprak / Ketipung Habsyi (Sepasang)</h3>
+                                <span class="text-brand-600 font-extrabold text-lg">Rp 300.000</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-3">Sepasang keprak ukuran standar untuk pengisi ritme hadrah.</p>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Isi 2 Pcs</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Kayu Mahoni</span>
+                            </div>
+                        </div>
+                        <button onclick="orderProduct('Keprak / Ketipung Habsyi (Sepasang)', 'Rp 300.000')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-semibold text-sm transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan via WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Kami -->
+    <section id="keunggulan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <span class="bg-brand-50 text-brand-600 px-3 py-1 rounded-lg text-xs font-semibold uppercase tracking-wider">Kenapa Memilih Kami?</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Keunggulan Pengrajin Rebana Lumajang</h2>
+                <p class="text-slate-600">Kami berkomitmen memberikan produk terbaik untuk kenyamanan majelis sholawat Anda.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Point 1 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200/80 hover:border-brand-500 transition space-y-4 group">
+                    <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-brand-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg">Kayu Berkualitas</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Menggunakan kayu mahoni dan nangka pilihan yang dioven agar tidak mudah susut dan tahan lama.</p>
+                </div>
+                <!-- Point 2 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200/80 hover:border-brand-500 transition space-y-4 group">
+                    <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-brand-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg">Suara Jernih</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Pengaturan kencer dan penarikan kulit/mika yang pas menghasilkan suara yang nyaring, empuk, dan khas.</p>
+                </div>
+                <!-- Point 3 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200/80 hover:border-brand-500 transition space-y-4 group">
+                    <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-brand-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-paint-brush"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg">Bisa Custom Nama</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Pesan alat rebana dengan sablon atau ukiran nama majelis, logo pondok, atau sekolah sesuai keinginan.</p>
+                </div>
+                <!-- Point 4 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200/80 hover:border-brand-500 transition space-y-4 group">
+                    <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-brand-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg">Aman & Terpercaya</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Melayani COD khusus wilayah Lumajang atau pengiriman aman berasuransi ke seluruh nusantara.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Pelanggan -->
+    <section id="testimoni" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <span class="bg-brand-500/20 text-brand-400 border border-brand-500/30 px-3 py-1 rounded-lg text-xs font-semibold uppercase tracking-wider">Testimoni</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold">Apa Kata Majelis & Pelanggan Kami?</h2>
+                <p class="text-slate-400">Kepuasan pelanggan adalah prioritas utama bengkel rebana kami di Lumajang.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testi 1 -->
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex text-gold-500 space-x-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            "Alhamdulillah pesanan fullset habsyi untuk grup sholawat masjid kami di Sukodono Lumajang sudah sampai dengan selamat. Suaranya mantap, kencernya gemerincing bagus!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-slate-700/60">
+                        <div class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center font-bold text-white">U</div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Ustadz Ahmad Fauzi</h4>
+                            <p class="text-xs text-slate-400">Ketua Majelis Nurul Musthofa, Lumajang</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 2 -->
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex text-gold-500 space-x-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            "Pelayanannya sangat ramah. Bisa custom nama grup di rebana dan tasnya. Harga jauh lebih terjangkau karena langsung dari pengrajinnya di Lumajang."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-slate-700/60">
+                        <div class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center font-bold text-white">B</div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Bpk. H. Zainul Arifin</h4>
+                            <p class="text-xs text-slate-400">Pengasuh TPQ Al-Hidayah, Yosowilangun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 3 -->
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex text-gold-500 space-x-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            "Darbukanya empuk banget dipakai ketukan cepat. Pengiriman cepat dan packing sangat aman. Sangat recommended buat anak-anak hadrah sekolah!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-slate-700/60">
+                        <div class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center font-bold text-white">R</div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Rian Pratama</h4>
+                            <p class="text-xs text-slate-400">Koordinator Hadrah SMA Lumajang</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lokasi & Kontak / CTA -->
+    <section id="kontak" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+                <div class="lg:col-span-6 p-8 sm:p-12 space-y-6">
+                    <span class="bg-brand-50 text-brand-600 px-3 py-1 rounded-lg text-xs font-semibold uppercase tracking-wider">Lokasi Workshop</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">Kunjungi Workshop Kami di Lumajang</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Ingin cek suara alat rebana secara langsung atau konsultasi model ukiran? Silakan datang langsung ke workshop kami atau hubungi kontak di bawah ini.
+                    </p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Alamat Workshop</h4>
+                                <p class="text-slate-600 text-xs mt-0.5">Winong, Dawuhan Lor, Kec. Sukodono, Kabupaten Lumajang, Jawa Timur 67352</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Telepon / WhatsApp</h4>
+                                <p class="text-slate-600 text-xs mt-0.5">+62 851-2236-2418 (Admin Pengrajin Rebana Lumajang)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Telepon / WhatsApp</h4>
+                                <p class="text-slate-600 text-xs mt-0.5">+62 851-2236-2418 (Admin Al-Barokah)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Jam Operasional</h4>
+                                <p class="text-slate-600 text-xs mt-0.5">Senin - Sabtu: 08.00 - 17.00 WIB (Minggu By Appointment)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://wa.me/6285122362418?text=Halo%20Admin,%20saya%20ingin%20berkunjung%20ke%20workshop%20rebana%20di%20Lumajang" target="_blank" class="inline-flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition text-sm">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Buat Janji Kunjung / Tanya Rute</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Banner/Image Area representing Map/Location -->
+                <div class="lg:col-span-6 bg-slate-800 relative flex items-center justify-center p-8 text-center min-h-[350px]">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://placehold.co/800x600/0f172a/cbd5e1?text=Workshop+Pengrajin+Rebana+Lumajang')"></div>
+                    <div class="relative z-10 space-y-4 max-w-md">
+                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center text-3xl mx-auto shadow-xl animate-bounce">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Pengrajin Rebana Lumajang</h3>
+                        <p class="text-xs text-slate-300">Pusat Grosir & Eceran Alat Musik Tradisional Islami Terlengkap dan Termurah di Winong, Dawuhan Lor, Sukodono, Lumajang.</p>
+                        <a href="https://maps.google.com/?q=Winong,+Dawuhan+Lor,+Kec.+Sukodono,+Kabupaten+Lumajang,+Jawa+Timur+67352" target="_blank" class="inline-block bg-white text-slate-900 hover:bg-slate-100 font-semibold px-5 py-2.5 rounded-xl text-xs shadow-lg transition">
+                            Buka di Google Maps <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 bg-brand-600 rounded-xl flex items-center justify-center text-white">
+                            <i class="fa-solid fa-drum"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white tracking-tight">PENGRAJIN REBANA LUMAJANG</span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+                        Produsen dan distributor alat musik rebana berkualitas tinggi di Lumajang. Melayani pengiriman ke seluruh Indonesia dengan jaminan mutu dan suara terbaik.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-sm mb-4">Navigasi Cepat</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#beranda" class="hover:text-white transition">Beranda</a></li>
+                        <li><a href="#tentang" class="hover:text-white transition">Tentang Kami</a></li>
+                        <li><a href="#katalog" class="hover:text-white transition">Katalog Produk</a></li>
+                        <li><a href="#keunggulan" class="hover:text-white transition">Keunggulan</a></li>
+                        <li><a href="#testimoni" class="hover:text-white transition">Testimoni</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-sm mb-4">Hubungi Kami</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i> +62 851-2236-2418</li>
+                        <li><i class="fa-solid fa-envelope text-brand-500 mr-2"></i> info@rebanalumajang.com</li>
+                        <li><i class="fa-solid fa-location-dot text-brand-500 mr-2"></i> Winong, Dawuhan Lor, Kec. Sukodono, Kab. Lumajang, Jawa Timur 67352</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center text-xs space-y-4 sm:space-y-0">
+                <p>&copy; 2026 Pengrajin Rebana Lumajang. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
+                    <a href="#" class="hover:text-white transition">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactive Code -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Toast notification helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+
+        // Product Filter Functionality
+        function filterProduct(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            });
+
+            event.target.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            event.target.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Order via WhatsApp redirect
+        function orderProduct(productName, price) {
+            const phoneNumber = '6285122362418';
+            const message = `Halo Admin Pengrajin Rebana Lumajang, saya ingin memesan produk:\n\n*${productName}* (${price})\n\nMohon informasi ketersediaan dan proses pengirimannya. Terima kasih!`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            showToast(`Mengarahkan ke WhatsApp untuk pemesanan ${productName}...`);
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 800);
+        }
+    </script>
+</body>
+</html>
